@@ -2,6 +2,7 @@
 #include "matrix.h"
 #include <stdint.h>
 
+volatile uint8_t frameimage[64*3]; //Declaring a vector instead of matrix guarantees memory zones allocated are continuous
 
 
 void uart_init(int baudrate){
@@ -98,21 +99,4 @@ uint32_t checksum(int datasize){
 
   return sum;
 
-}
-
-void USART1_IRQHandler(void){
-
-  static int index;
-  uint8_t frame = uart_getchar();
-
-  
-  if(frame == 0xFF || index==192){
-    index = 0;
-    USART1->ICR = USART1->ICR | (USART_ICR_FECF | USART_ICR_ORECF); //Clears the error bits
-  }
-  else{
-    if(!(USART1->ISR & USART_ISR_FE) && !(USART1->ISR & USART_ISR_ORE)){  //If no error ocurred, show frame normally
-      frameimage[index++] = frame;
-    }
-  }
 }

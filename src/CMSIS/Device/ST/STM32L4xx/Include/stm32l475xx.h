@@ -11491,7 +11491,7 @@ typedef struct
 #define RCC_CCIPR_UART4SEL_1                 (0x2UL << RCC_CCIPR_UART4SEL_Pos) /*!< 0x00000080 */
 
 #define RCC_CCIPR_UART5SEL_Pos               (8U)
-#usdefine RCC_CCIPR_UART5SEL_Msk               (0x3UL << RCC_CCIPR_UART5SEL_Pos) /*!< 0x00000300 */
+#define RCC_CCIPR_UART5SEL_Msk               (0x3UL << RCC_CCIPR_UART5SEL_Pos) /*!< 0x00000300 */
 #define RCC_CCIPR_UART5SEL                   RCC_CCIPR_UART5SEL_Msk
 #define RCC_CCIPR_UART5SEL_0                 (0x1UL << RCC_CCIPR_UART5SEL_Pos) /*!< 0x00000100 */
 #define RCC_CCIPR_UART5SEL_1                 (0x2UL << RCC_CCIPR_UART5SEL_Pos) /*!< 0x00000200 */
